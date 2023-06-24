@@ -48,5 +48,34 @@ namespace EntityFrameworkExample2
                                             OrderByDescending(z=>z.City);
             dataGridView1.DataSource = query.ToList();
         }
+
+        private void btnGetAverage_Click(object sender, EventArgs e)
+        {
+            labelHighestAverage.Text = "Highest Average Value: " + db.TBLNOTLAR.Max(x=> x.Ortalama).ToString();
+            var query = db.TBLNOTLAR.SelectMany(x => db.TBLOGRENCI.Where(y => y.ID == x.OgrID),
+                                                        (x, y) => new
+                                                        {
+                                                            Name = y.Ad,
+                                                            Surname = y.Soyad,
+                                                            Average = x.Ortalama,
+                                                            PassOrFail = x.Durum
+                                                        });
+            dataGridView1.DataSource = query.ToList();
+        }
+
+        private void btnGetLowestAverage_Click(object sender, EventArgs e)
+        {
+            //labelLowestAverage.Text = "Lowest Average Value: " + db.TBLNOTLAR.Min(x => x.Ortalama).ToString();
+            var query = db.TBLNOTLAR.SelectMany(x => db.TBLOGRENCI.Where(y=> y.ID == x.OgrID),
+                                                        (x,y) => new 
+                                                        {
+                                                            Name = y.Ad,
+                                                            Surname = y.Soyad,
+                                                            Average = x.Ortalama,
+                                                            PassOrFail = x.Durum
+                                                        });
+            dataGridView1.DataSource = query.ToList();
+            labelLowestAverage.Text = "Failed Student with Highest Average Value: " + db.TBLNOTLAR.Where(x=> x.Durum == false).Max(y=> y.Ortalama).ToString();
+        }
     }
 }

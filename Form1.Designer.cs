@@ -32,6 +32,10 @@ namespace EntityFrameworkExample2
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.buttonOrderByAscThenGroupBy = new System.Windows.Forms.Button();
             this.buttonOrderByDescThenGroupBy = new System.Windows.Forms.Button();
+            this.labelHighestAverage = new System.Windows.Forms.Label();
+            this.btnGetHighestAverage = new System.Windows.Forms.Button();
+            this.btnGetLowestAverage = new System.Windows.Forms.Button();
+            this.labelLowestAverage = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,11 +68,53 @@ namespace EntityFrameworkExample2
             this.buttonOrderByDescThenGroupBy.UseVisualStyleBackColor = true;
             this.buttonOrderByDescThenGroupBy.Click += new System.EventHandler(this.buttonOrderByDescThenGroupBy_Click);
             // 
+            // labelHighestAverage
+            // 
+            this.labelHighestAverage.AutoSize = true;
+            this.labelHighestAverage.Location = new System.Drawing.Point(443, 357);
+            this.labelHighestAverage.Name = "labelHighestAverage";
+            this.labelHighestAverage.Size = new System.Drawing.Size(180, 20);
+            this.labelHighestAverage.TabIndex = 3;
+            this.labelHighestAverage.Text = "Highest Average Value: ";
+            // 
+            // btnGetHighestAverage
+            // 
+            this.btnGetHighestAverage.Location = new System.Drawing.Point(266, 347);
+            this.btnGetHighestAverage.Name = "btnGetHighestAverage";
+            this.btnGetHighestAverage.Size = new System.Drawing.Size(173, 41);
+            this.btnGetHighestAverage.TabIndex = 4;
+            this.btnGetHighestAverage.Text = "Get Highest Average";
+            this.btnGetHighestAverage.UseVisualStyleBackColor = true;
+            this.btnGetHighestAverage.Click += new System.EventHandler(this.btnGetAverage_Click);
+            // 
+            // btnGetLowestAverage
+            // 
+            this.btnGetLowestAverage.Location = new System.Drawing.Point(266, 394);
+            this.btnGetLowestAverage.Name = "btnGetLowestAverage";
+            this.btnGetLowestAverage.Size = new System.Drawing.Size(173, 41);
+            this.btnGetLowestAverage.TabIndex = 6;
+            this.btnGetLowestAverage.Text = "Get Lowest Average";
+            this.btnGetLowestAverage.UseVisualStyleBackColor = true;
+            this.btnGetLowestAverage.Click += new System.EventHandler(this.btnGetLowestAverage_Click);
+            // 
+            // labelLowestAverage
+            // 
+            this.labelLowestAverage.AutoSize = true;
+            this.labelLowestAverage.Location = new System.Drawing.Point(443, 404);
+            this.labelLowestAverage.Name = "labelLowestAverage";
+            this.labelLowestAverage.Size = new System.Drawing.Size(176, 20);
+            this.labelLowestAverage.TabIndex = 5;
+            this.labelLowestAverage.Text = "Lowest Average Value: ";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1037, 593);
+            this.Controls.Add(this.btnGetLowestAverage);
+            this.Controls.Add(this.labelLowestAverage);
+            this.Controls.Add(this.btnGetHighestAverage);
+            this.Controls.Add(this.labelHighestAverage);
             this.Controls.Add(this.buttonOrderByDescThenGroupBy);
             this.Controls.Add(this.buttonOrderByAscThenGroupBy);
             this.Controls.Add(this.dataGridView1);
@@ -79,6 +125,7 @@ namespace EntityFrameworkExample2
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -87,6 +134,10 @@ namespace EntityFrameworkExample2
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button buttonOrderByAscThenGroupBy;
         private System.Windows.Forms.Button buttonOrderByDescThenGroupBy;
+        private System.Windows.Forms.Label labelHighestAverage;
+        private System.Windows.Forms.Button btnGetHighestAverage;
+        private System.Windows.Forms.Button btnGetLowestAverage;
+        private System.Windows.Forms.Label labelLowestAverage;
     }
 }
 
