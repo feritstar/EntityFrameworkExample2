@@ -36,6 +36,7 @@ namespace EntityFrameworkExample2
             this.btnGetHighestAverage = new System.Windows.Forms.Button();
             this.btnGetLowestAverage = new System.Windows.Forms.Button();
             this.labelLowestAverage = new System.Windows.Forms.Label();
+            this.buttonProcedure = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -106,11 +107,22 @@ namespace EntityFrameworkExample2
             this.labelLowestAverage.TabIndex = 5;
             this.labelLowestAverage.Text = "Lowest Average Value: ";
             // 
+            // buttonProcedure
+            // 
+            this.buttonProcedure.Location = new System.Drawing.Point(12, 441);
+            this.buttonProcedure.Name = "buttonProcedure";
+            this.buttonProcedure.Size = new System.Drawing.Size(235, 41);
+            this.buttonProcedure.TabIndex = 7;
+            this.buttonProcedure.Text = "Get Clubs By Procedure";
+            this.buttonProcedure.UseVisualStyleBackColor = true;
+            this.buttonProcedure.Click += new System.EventHandler(this.buttonProcedure_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1037, 593);
+            this.Controls.Add(this.buttonProcedure);
             this.Controls.Add(this.btnGetLowestAverage);
             this.Controls.Add(this.labelLowestAverage);
             this.Controls.Add(this.btnGetHighestAverage);
@@ -138,6 +150,7 @@ namespace EntityFrameworkExample2
         private System.Windows.Forms.Button btnGetHighestAverage;
         private System.Windows.Forms.Button btnGetLowestAverage;
         private System.Windows.Forms.Label labelLowestAverage;
+        private System.Windows.Forms.Button buttonProcedure;
     }
 }
 

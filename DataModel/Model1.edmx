@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DbSinavOgrenciModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DbSinavOgrenciModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="TBLClubs">
           <Key>
             <PropertyRef Name="KulupId" />
@@ -79,6 +79,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="GetClubs" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="DbSinavOgrenciModelStoreContainer">
           <EntitySet Name="TBLClubs" EntityType="Self.TBLClubs" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBLDERSLER" EntityType="Self.TBLDERSLER" Schema="dbo" store:Type="Tables" />
@@ -97,8 +98,7 @@
             <End Role="TBLOGRENCI" EntitySet="TBLOGRENCI" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DbSinavOgrenciModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -199,7 +199,14 @@
             <End Role="TBLOGRENCI" EntitySet="TBLOGRENCI" />
             <End Role="TBLNOTLAR" EntitySet="TBLNOTLAR" />
           </AssociationSet>
+          <FunctionImport Name="GetClubs" ReturnType="Collection(DbSinavOgrenciModel.GetClubs_Result)" />
         </EntityContainer>
+        <ComplexType Name="GetClubs_Result">
+          <Property Type="String" Name="Ad" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Soyad" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Sehir" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="KulupAdi" Nullable="true" MaxLength="50" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -248,6 +255,16 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetClubs" FunctionName="DbSinavOgrenciModel.Store.GetClubs">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DbSinavOgrenciModel.GetClubs_Result">
+                <ScalarProperty Name="Ad" ColumnName="Ad" />
+                <ScalarProperty Name="Soyad" ColumnName="Soyad" />
+                <ScalarProperty Name="Sehir" ColumnName="Sehir" />
+                <ScalarProperty Name="KulupAdi" ColumnName="KulupAdi" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

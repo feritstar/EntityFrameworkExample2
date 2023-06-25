@@ -12,6 +12,8 @@ namespace EntityFrameworkExample2.DataModel
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class DbSinavOgrenciEntities : DbContext
     {
@@ -29,5 +31,10 @@ namespace EntityFrameworkExample2.DataModel
         public virtual DbSet<TBLDERSLER> TBLDERSLER { get; set; }
         public virtual DbSet<TBLNOTLAR> TBLNOTLAR { get; set; }
         public virtual DbSet<TBLOGRENCI> TBLOGRENCI { get; set; }
+    
+        public virtual ObjectResult<GetClubs_Result> GetClubs()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetClubs_Result>("GetClubs");
+        }
     }
 }

@@ -77,5 +77,10 @@ namespace EntityFrameworkExample2
             dataGridView1.DataSource = query.ToList();
             labelLowestAverage.Text = "Failed Student with Highest Average Value: " + db.TBLNOTLAR.Where(x=> x.Durum == false).Max(y=> y.Ortalama).ToString();
         }
+
+        private void buttonProcedure_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = db.GetClubs().ToList();
+        }
     }
 }
